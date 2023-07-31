@@ -34,8 +34,13 @@ function App() {
     console.log(isValid, message)
     setIsInputValid(isValid)
     setInputValidationMsg(message)
-    
     if (!isValid) return
+    const res = await axios.get(
+      'https://3c9e7sa4sl.execute-api.us-east-2.amazonaws.com/dev/calculator', 
+      { params: { x: inputX, y: inputY, op: operator} });
+    console.log(res)
+    const answer = res.data.ans as string
+    setResult(answer)
   }
 
   const validityCheck = ():validationResultType => {
@@ -45,7 +50,7 @@ function App() {
         message: "Don't forget select operational sign"
       }
     }
-    if (operator == '/' && inputY == '0') {
+    if (operator == 'divide' && inputY == '0') {
       return {
         isValid: false,
         message: "We can't divide 0 buddy"
