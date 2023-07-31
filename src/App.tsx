@@ -1,10 +1,9 @@
-import { ChangeEvent, useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import InputLabel from '@mui/material/InputLabel';
-import Box, { BoxProps } from '@mui/material/Box';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import './App.css'
 
 type optionType = {label: string, value: string}
@@ -14,6 +13,7 @@ function App() {
   const [inputX, setInputX] = useState('')
   const [inputY, setInputY] = useState('')
   const [operator, setOperator] = useState('')
+  const [result, setResult] = useState('')
 
   const handleInputXChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputX(event.target.value)
@@ -38,16 +38,23 @@ function App() {
         }}>
       <TextField
           required
-          id="outlined-required"
-          placeholder="input value X"
+          id="xInput"
+          placeholder="input X"
           onChange={handleInputXChange}
+          sx = {{
+            width: "80px",
+            marginRight:'15px'
+          }}
         />
       <div className='operation-select'>
         <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            label="Operator" 
             onChange={handleInputOpChange}
+            sx={{
+              width:'60px',
+              marginRight:'15px'
+            }}
             >
               <MenuItem value={'add'}>*</MenuItem>
               <MenuItem value={'minus'}>-</MenuItem>
@@ -55,23 +62,28 @@ function App() {
               <MenuItem value={'divid'}>/</MenuItem>
         </Select>
       </div>
-      
-      <input value={inputX} onChange={handleInputXChange} className='xInput'></input>
-      <select >
-        <option value='add'>
-          +
-        </option>
-        <option value='minus'>
-          -
-        </option>
-        <option value='multiply'>
-          *
-        </option>
-        <option value='divide'>
-          /
-        </option>
-      </select>
+      <TextField
+          required
+          id="yInput"
+          placeholder="input Y"
+          onChange={handleInputYChange}
+          sx = {{
+            width: "80px",
+            marginRight:'20px'
+          }}
+        />
+      <p className='equal-sign' >=</p>
+      <TextField 
+        id="result" 
+        variant="standard"
+        value={result}
+        contentEditable="false"
+        sx={{
+          width: 'auto'
+        }} />
+        
       </Box>
+      <Button variant="contained">Get Result</Button>
     </>
   )
 }

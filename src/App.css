@@ -4,6 +4,12 @@
   padding: 2rem;
   text-align: center;
 }
-.xInput {
-  margin-right: 20px; 
+.equal-sign {
+  font-size: 30px;
+  color: black;
+  margin-right: 15px;
+}
+
+.MuiInputBase-input{
+  margin-right: 20px;
 }
