@@ -16,6 +16,8 @@ function App() {
   const [inputY, setInputY] = useState('')
   const [operator, setOperator] = useState('')
   const [result, setResult] = useState('')
+  const [isInputValid, setIsInputValid] = useState(true)
+  const [inputValidationMsg, setInputValidationMsg] = useState('')
 
   const handleInputXChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputX(event.target.value)
@@ -28,12 +30,12 @@ function App() {
   }
 
   const getCalculationResult = async() => {
-    const res = await axios.get(
-      'https://3c9e7sa4sl.execute-api.us-east-2.amazonaws.com/dev/calculator', 
-      { params: { x: inputX, y: inputY, op: operator} });
-    console.log(res)
-    const answer = res.data.ans as string
-    setResult(answer)
+    const {isValid, message} = validityCheck()
+    console.log(isValid, message)
+    setIsInputValid(isValid)
+    setInputValidationMsg(message)
+    
+    if (!isValid) return
   }
 
   const validityCheck = ():validationResultType => {
@@ -81,6 +83,7 @@ function App() {
             width: "80px",
             marginRight:'15px'
           }}
+          suppressContentEditableWarning={true}
         />
       <div className='operation-select'>
         <Select
@@ -120,6 +123,9 @@ function App() {
         
       </Box>
       <Button variant="contained" onClick={getCalculationResult}>Get Result</Button>
+      {
+        isInputValid ? null: <p>{inputValidationMsg}</p>
+      }
     </>
   )
 }
