@@ -4,9 +4,13 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import axios from 'axios';
 import './App.css'
 
-type optionType = {label: string, value: string}
+type validationResultType = {
+  isValid: Boolean,
+  message: string
+}
 
 function App() {
   const [count, setCount] = useState('')
@@ -23,6 +27,15 @@ function App() {
   }
   const handleInputOpChange = (event: SelectChangeEvent) => {
       setOperator(event.target.value)
+  }
+
+  const getCalculationResult = async() => {
+    const res = await axios.get(
+      'https://3c9e7sa4sl.execute-api.us-east-2.amazonaws.com/dev/calculator', 
+      { params: { x: inputX, y: inputY, op: operator} });
+    console.log(res)
+    const answer = res.data.ans as string
+    setResult(answer)
   }
 
   return (
@@ -56,10 +69,10 @@ function App() {
               marginRight:'15px'
             }}
             >
-              <MenuItem value={'add'}>*</MenuItem>
+              <MenuItem value={'add'}>+</MenuItem>
               <MenuItem value={'minus'}>-</MenuItem>
               <MenuItem value={'multiply'}>*</MenuItem>
-              <MenuItem value={'divid'}>/</MenuItem>
+              <MenuItem value={'divide'}>/</MenuItem>
         </Select>
       </div>
       <TextField
@@ -83,7 +96,7 @@ function App() {
         }} />
         
       </Box>
-      <Button variant="contained">Get Result</Button>
+      <Button variant="contained" onClick={getCalculationResult}>Get Result</Button>
     </>
   )
 }
