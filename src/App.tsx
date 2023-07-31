@@ -5,12 +5,10 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import axios from 'axios';
+import { validationResultType } from './type';
 import './App.css'
 
-type validationResultType = {
-  isValid: Boolean,
-  message: string
-}
+
 
 function App() {
   const [count, setCount] = useState('')
@@ -38,6 +36,31 @@ function App() {
     setResult(answer)
   }
 
+  const validityCheck = ():validationResultType => {
+    if (operator == '') {
+      return {
+        isValid: false,
+        message: "Don't forget select operational sign"
+      }
+    }
+    if (operator == '/' && inputY == '0') {
+      return {
+        isValid: false,
+        message: "We can't divide 0 buddy"
+      }
+    }
+    if (inputX == '' || inputY == '') {
+      return {
+        isValid: false,
+        message: "Don't forget give value to X and Y"
+      }
+    }
+    return {
+      isValid: true,
+      message: "Success"
+    }
+  }
+
   return (
     <>
     <Box
@@ -50,8 +73,8 @@ function App() {
           rowGap: '10px'
         }}>
       <TextField
-          required
           id="xInput"
+          label="X"
           placeholder="input X"
           onChange={handleInputXChange}
           sx = {{
@@ -76,9 +99,9 @@ function App() {
         </Select>
       </div>
       <TextField
-          required
           id="yInput"
           placeholder="input Y"
+          label="Y"
           onChange={handleInputYChange}
           sx = {{
             width: "80px",
