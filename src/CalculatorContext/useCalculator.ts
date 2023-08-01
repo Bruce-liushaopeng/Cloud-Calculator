@@ -6,7 +6,7 @@ export function useCalculator() {
   
     // check for best practice
     if (calculatorContextData === undefined) {
-      throw new Error('useCounter must be used within a CounterProvider');
+      throw new Error('useCalculator must be used within a CalculatorProvider');
     }
   
     return calculatorContextData;
