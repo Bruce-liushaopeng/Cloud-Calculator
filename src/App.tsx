@@ -5,7 +5,6 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import {fetchCalculatorResult, validityCheck} from './util.ts'
-import { validationResultType } from './type';
 import './App.css'
 
 
@@ -54,6 +53,7 @@ function App() {
         }}>
       <TextField
           id="xInput"
+          type='tel'
           label="X"
           placeholder="input X"
           onChange={handleInputXChange}
@@ -80,6 +80,7 @@ function App() {
         </Select>
       </div>
       <TextField
+          type='tel'
           id="yInput"
           placeholder="input Y"
           label="Y"
@@ -95,9 +96,10 @@ function App() {
         variant="standard"
         value={result}
         label='result'
+        type='tel'
         sx={{
           input: {textAlign: "center"},
-          width: "70px"
+          width: "90px"
         }} />
         
       </Box>

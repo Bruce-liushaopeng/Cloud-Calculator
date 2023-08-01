@@ -13,10 +13,11 @@ def lambda_handler(event, context):
     
     # prepare for the respond body
     res_body = {}
-    res_body['x'] = int(x)
-    res_body['y'] = int(y)
+    res_body['x'] = float(x)
+    res_body['y'] = float(y)
     res_body['op'] = op
-    res_body['ans'] = handle(int(x), int(y), op) 
+    roundedAns = round(handle(float(x), float(y), op), 2)
+    res_body['ans'] = roundedAns
 
     # prepare the http response
     http_res = {}
