@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import axios from 'axios';
+import {fetchCalculatorResult} from './util.ts'
 import { validationResultType } from './type';
 import './App.css'
 
@@ -35,9 +35,7 @@ function App() {
     setIsInputValid(isValid)
     setInputValidationMsg(message)
     if (!isValid) return
-    const res = await axios.get(
-      'https://3c9e7sa4sl.execute-api.us-east-2.amazonaws.com/dev/calculator', 
-      { params: { x: inputX, y: inputY, op: operator} });
+    const res = await fetchCalculatorResult(inputX, inputY, operator);
     console.log(res)
     const answer = res.data.ans as string
     setResult(answer)
