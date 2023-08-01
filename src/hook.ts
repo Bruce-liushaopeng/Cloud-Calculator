@@ -13,12 +13,17 @@ function useHook(){
       marginRight:'15px'
     }
 
-    const operatorTextFieldStyleProps = {
+    const resultStyleProps = {
       input: {textAlign: "center"},
       width: "90px"
     }
 
-    return {boxStyleProps, xYTextFieldStyleProps, operatorTextFieldStyleProps}
+    const operatorStyleProps = {
+        width:'60px',
+        marginRight:'15px'
+      }
+
+    return { boxStyleProps, xYTextFieldStyleProps, operatorStyleProps, resultStyleProps }
 }
 
 export { useHook }

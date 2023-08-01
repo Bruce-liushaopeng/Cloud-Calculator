@@ -8,8 +8,6 @@ import {fetchCalculatorResult, validityCheck} from './util.ts'
 import {useHook} from './hook.ts'
 import './App.css'
 
-
-
 function App() {
   const [inputX, setInputX] = useState('')
   const [inputY, setInputY] = useState('')
@@ -17,7 +15,7 @@ function App() {
   const [result, setResult] = useState('')
   const [isInputValid, setIsInputValid] = useState(true)
   const [inputValidationMsg, setInputValidationMsg] = useState('')
-  const {boxStyleProps, xYTextFieldStyleProps, operatorTextFieldStyleProps} = useHook();
+  const {boxStyleProps, xYTextFieldStyleProps, resultStyleProps, operatorStyleProps} = useHook();
 
   const handleInputXChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputX(event.target.value)
@@ -51,17 +49,14 @@ function App() {
           label="X"
           placeholder="input X"
           onChange={handleInputXChange}
-          sx = {{
-            width: "80px",
-            marginRight:'15px'
-          }}
+          sx = {xYTextFieldStyleProps}
         />
       <div className='operation-select'>
         <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             onChange={ handleInputOpChange }
-            sx={ xYTextFieldStyleProps }
+            sx={ operatorStyleProps }
             >
               <MenuItem value={'add'}>+</MenuItem>
               <MenuItem value={'minus'}>-</MenuItem>
@@ -84,17 +79,19 @@ function App() {
         value={result}
         label='result'
         type='tel'
-        sx={operatorTextFieldStyleProps} />
+        sx={resultStyleProps} />
       </Box>
       <Button 
         variant="contained" 
         id="awsButton" 
-        onClick={ getCalculationResult }>
+        onClick={ getCalculationResult }
+        sx={{
+          fontSize: "20px",
+          padding: '5px 15px',
+          textTransform: 'none'
+        }}>
           Get Result
-          <img 
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbPevG_OoHXOn_iZQFGK2Rtto7jwpudqf8OA&usqp=CAU"
-          width={"40px"}>
-          </img>
+          <img src="./awsLogo.png" width={"33px"} alt="awsLogo" style={{marginLeft: "10px"}}></img>
         </Button>
       {
         isInputValid ? null: <p>{inputValidationMsg}</p>
