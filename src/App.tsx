@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import {fetchCalculatorResult} from './util.ts'
+import {fetchCalculatorResult, validityCheck} from './util.ts'
 import { validationResultType } from './type';
 import './App.css'
 
@@ -30,7 +30,7 @@ function App() {
   }
 
   const getCalculationResult = async() => {
-    const {isValid, message} = validityCheck()
+    const {isValid, message} = validityCheck(inputX, inputY, operator);
     console.log(isValid, message)
     setIsInputValid(isValid)
     setInputValidationMsg(message)
@@ -39,31 +39,6 @@ function App() {
     console.log(res)
     const answer = res.data.ans as string
     setResult(answer)
-  }
-
-  const validityCheck = ():validationResultType => {
-    if (operator == '') {
-      return {
-        isValid: false,
-        message: "Don't forget select operational sign"
-      }
-    }
-    if (operator == 'divide' && inputY == '0') {
-      return {
-        isValid: false,
-        message: "We can't divide 0 buddy"
-      }
-    }
-    if (inputX == '' || inputY == '') {
-      return {
-        isValid: false,
-        message: "Don't forget give value to X and Y"
-      }
-    }
-    return {
-      isValid: true,
-      message: "Success"
-    }
   }
 
   return (
@@ -119,9 +94,10 @@ function App() {
         id="result" 
         variant="standard"
         value={result}
-        contentEditable="false"
+        label='result'
         sx={{
-          width: 'auto'
+          input: {textAlign: "center"},
+          width: "70px"
         }} />
         
       </Box>
