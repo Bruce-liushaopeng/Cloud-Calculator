@@ -86,7 +86,16 @@ function App() {
         type='tel'
         sx={operatorTextFieldStyleProps} />
       </Box>
-      <Button variant="contained" onClick={getCalculationResult}>Get Result</Button>
+      <Button 
+        variant="contained" 
+        id="awsButton" 
+        onClick={ getCalculationResult }>
+          Get Result
+          <img 
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbPevG_OoHXOn_iZQFGK2Rtto7jwpudqf8OA&usqp=CAU"
+          width={"40px"}>
+          </img>
+        </Button>
       {
         isInputValid ? null: <p>{inputValidationMsg}</p>
       }
