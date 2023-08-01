@@ -4,9 +4,9 @@ interface ICalculatorData {
     xValue: string, 
     yValue: string,
     operator: string,
-    handleInputXChange: (event: React.ChangeEvent<HTMLInputElement>) => {}
-    handleInputYChange: (event: React.ChangeEvent<HTMLInputElement>) => {}
-    handleOperatorChange: (event: SelectChangeEvent) => {}
+    handleInputXChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+    handleInputYChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+    handleOperatorChange: (event: SelectChangeEvent) => void
 }
 
-export type {ICalculatorData}
+export type { ICalculatorData }
