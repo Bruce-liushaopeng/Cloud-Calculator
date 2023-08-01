@@ -4,6 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import NumberInputTextField from './components/NumberInputTextField/NumberInputTextField.tsx';
 import {fetchCalculatorResult, validityCheck} from './util.ts'
 import {useHook} from './hook.ts'
 import './App.css'
@@ -43,6 +44,11 @@ function App() {
     <>
     <Box
         sx={boxStyleProps}>
+      <NumberInputTextField 
+        id="xInput"
+        label="Z"
+        sx={xYTextFieldStyleProps}
+      />
       <TextField
           id="xInput"
           type='tel'
