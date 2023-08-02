@@ -1,0 +1,16 @@
+.buttonInnerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#awsButton {
+    background-color: #FF9900;
+    color: #000000;
+    margin-right: 15px;
+}
+
+.circleFetchTimeContainer {
+    width: 100px;
+}
