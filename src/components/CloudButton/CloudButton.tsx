@@ -4,7 +4,7 @@ import { Circle } from "styled-spinkit";
 import './style.css'
 
 function CloudButton(
-    { onChange, sx, isApiFetching, apiFetchTime, image, alt}:ICloudButtonProps
+    { onChange, sx, isApiFetching, apiFetchTime, image, alt }:ICloudButtonProps
     ) {
     return(
         <Box>
