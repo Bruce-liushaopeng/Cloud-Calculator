@@ -35,17 +35,11 @@ function CalculatorApp() {
         sx={boxStyleProps}>
       <NumberInputTextField 
         id="xInput"
-        label="Z"
+        label="X"
         sx={xYTextFieldStyleProps}
+        value={xValue}
+        onChange={handleInputXChange}
       />
-      <TextField
-          id="xInput"
-          type='tel'
-          label="X"
-          placeholder="input X"
-          onChange={handleInputXChange}
-          sx = {xYTextFieldStyleProps}
-        />
       <div className='operation-select'>
         <Select
             labelId="demo-simple-select-label"
@@ -59,14 +53,13 @@ function CalculatorApp() {
               <MenuItem value={'divide'}>/</MenuItem>
         </Select>
       </div>
-      <TextField
-          type='tel'
-          id="yInput"
-          placeholder="input Y"
-          label="Y"
-          onChange={ handleInputYChange }
-          sx = { xYTextFieldStyleProps }
-        />
+      <NumberInputTextField 
+        id="xInput"
+        label="Y"
+        sx={xYTextFieldStyleProps}
+        value={yValue}
+        onChange={handleInputYChange}
+      />
       <p className='equal-sign' >=</p>
       <TextField 
         id="result" 
