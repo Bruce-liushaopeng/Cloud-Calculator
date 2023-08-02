@@ -5,13 +5,15 @@ import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import NumberInputTextField from '../NumberInputTextField/NumberInputTextField.tsx';
+import { Typography, colors } from '@mui/material';
+import {Circle} from 'styled-spinkit'
 import { fetchCalculatorResult, validityCheck } from './util.ts';
 import {useHook} from './hook.ts'
 import { operationArray } from './type.ts';
 import { useCalculator } from '../../calculatorContext/useCalculator.ts';
 import _ from 'underscore';
 import './style.css'
-import { Typography } from '@mui/material';
+
 
 function CalculatorApp() {
   const { xValue, yValue, operator, handleInputXChange, handleInputYChange, handleOperatorChange } = useCalculator()
@@ -20,6 +22,7 @@ function CalculatorApp() {
   const [inputValidationMsg, setInputValidationMsg] = useState('')
   const {boxStyleProps, xYTextFieldStyleProps, resultStyleProps, operatorStyleProps, resultButtonStyleProps} = useHook();
   const [apiFetchTime, setApiFetchTime] = useState(Number)
+  const [isApiFetching, setIsApiFetching] = useState(Boolean)
 
   const getCalculationResult = async() => {
     const {isValid, message} = validityCheck(xValue, yValue, operator);
@@ -27,8 +30,10 @@ function CalculatorApp() {
     setIsInputValid(isValid)
     setInputValidationMsg(message)
     if (!isValid) return
+    setIsApiFetching(true)
     const {res, duration} = await fetchCalculatorResult(xValue, yValue, operator);
     setApiFetchTime(duration)
+    setIsApiFetching(false)
     const answer = res.data.ans as string
     setResult(answer)
   }
@@ -85,12 +90,16 @@ function CalculatorApp() {
               Get Result
               <img src="./awsLogo.png" width={"33px"} alt="awsLogo" style={{marginLeft: "10px"}}></img>
           </Button>
-          {
-
-          }
-          <Typography variant='body2'>
-            {`${apiFetchTime} ms`}
-          </Typography>
+          <div className='circleFetchTimeContainer'>
+            {
+              isApiFetching ? <Circle size={27}/>
+                : Boolean(apiFetchTime) ? 
+                <Typography variant='body2'>
+                  {`${apiFetchTime} ms`}
+                </Typography>
+                : null
+            }
+          </div>
         </Box>
       </Box>
       <Box className='validationBox'>
