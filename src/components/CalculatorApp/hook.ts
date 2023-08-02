@@ -21,9 +21,14 @@ function useHook(){
     const operatorStyleProps = {
         width:'60px',
         marginRight:'15px'
-      }
+    }
 
-    return { boxStyleProps, xYTextFieldStyleProps, operatorStyleProps, resultStyleProps }
+    const resultButtonStyleProps = {
+      fontSize: "20px",
+      padding: '5px 15px',
+      textTransform: 'none'
+    }
+    return { boxStyleProps, xYTextFieldStyleProps, operatorStyleProps, resultStyleProps, resultButtonStyleProps }
 }
 
 export { useHook }

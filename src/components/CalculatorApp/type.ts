@@ -1,3 +1,14 @@
+import { AxiosResponse } from "axios"
+
+type validationResultType = {
+    isValid: boolean,
+    message: string
+}
+
+type ApiResponseType = {
+    res: AxiosResponse,
+    duration: number
+}
 
 interface IOperator {
     operatorName: string, 
@@ -22,4 +33,5 @@ const operationArray: IOperator[] = [
     },
 ]
 
-export { operationArray }
+export type { validationResultType, ApiResponseType}
+export {operationArray}

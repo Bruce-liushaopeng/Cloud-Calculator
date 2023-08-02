@@ -9,5 +9,22 @@
   
 #awsButton {
   background-color: #FF9900;
-  color: #000000
+  color: #000000;
+  margin-right: 15px;
+}
+
+.buttonInnerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.ResultButton {
+  margin-right: 20px;
+}
+
+.validationMsg {
+  text-align: center;
+  color: #b61c24;
 }
