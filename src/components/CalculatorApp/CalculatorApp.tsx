@@ -7,9 +7,9 @@ import Button from '@mui/material/Button';
 import NumberInputTextField from '../NumberInputTextField/NumberInputTextField.tsx';
 import { fetchCalculatorResult, validityCheck } from '../../util.ts';
 import {useHook} from '../../hook.ts'
-import './App.css'
+import './style.css'
 
-function App() {
+function CalculatorApp() {
   const [inputX, setInputX] = useState('')
   const [inputY, setInputY] = useState('')
   const [operator, setOperator] = useState('')
@@ -106,4 +106,4 @@ function App() {
   )
 }
 
-export default App
+export default CalculatorApp

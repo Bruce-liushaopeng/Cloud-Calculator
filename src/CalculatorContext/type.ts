@@ -9,4 +9,8 @@ interface ICalculatorData {
     handleOperatorChange: (event: SelectChangeEvent) => void
 }
 
-export type { ICalculatorData }
+interface IProps {
+    children: React.ReactNode;
+}
+
+export type { ICalculatorData, IProps }

@@ -1,9 +1,9 @@
 import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
-import { ICalculatorData } from './type';
+import { ICalculatorData, IProps } from './type';
 import CalculatorContext from './CalculatorContext';
 import { SelectChangeEvent } from '@mui/material/Select';
 
-function CalculatorProvider(children: React.ReactNode): React.ReactNode {
+function CalculatorProvider({children}: IProps){
     const [xValue, setxValue] = useState('')
     const [yValue, setYValue] = useState('')
     const [operator, setOperator] = useState('')
@@ -18,6 +18,7 @@ function CalculatorProvider(children: React.ReactNode): React.ReactNode {
         setOperator(event.target.value)
     }
 
+    // for best practice to prevent rerender when value not change
     const counterContextData: ICalculatorData = useMemo(() => {
         return {
             xValue,
