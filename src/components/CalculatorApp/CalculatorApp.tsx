@@ -1,14 +1,16 @@
 import { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import NumberInputTextField from '../NumberInputTextField/NumberInputTextField.tsx';
 import { fetchCalculatorResult, validityCheck } from '../../util.ts';
-import {useHook} from '../../hook.ts'
+import {useHook} from './hook.ts'
+import { operationArray } from './type.ts';
+import { useCalculator } from '../../calculatorContext/useCalculator.ts';
+import _ from 'underscore';
 import './style.css'
-import { useCalculator } from '../../CalculatorContext/useCalculator.ts';
 
 function CalculatorApp() {
   const { xValue, yValue, operator, handleInputXChange, handleInputYChange, handleOperatorChange } = useCalculator()
@@ -47,10 +49,11 @@ function CalculatorApp() {
             onChange={ handleOperatorChange }
             sx={ operatorStyleProps }
             >
-              <MenuItem value={'add'}>+</MenuItem>
-              <MenuItem value={'minus'}>-</MenuItem>
-              <MenuItem value={'multiply'}>*</MenuItem>
-              <MenuItem value={'divide'}>/</MenuItem>
+            {
+              _.map(operationArray, ({operatorName, operatorSymbol}) => {
+                return <MenuItem value={operatorName}>{operatorSymbol}</MenuItem>
+              })
+            }
         </Select>
       </div>
       <NumberInputTextField 

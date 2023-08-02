@@ -3,11 +3,11 @@
     margin-right: 15px;
   }
   
-  .MuiInputBase-input{
-    margin-right: 20px;
-  }
+.MuiInputBase-input{
+  margin-right: 20px;
+}
   
-  #awsButton {
-    background-color: #FF9900;
-    color: #000000
-  }
+#awsButton {
+  background-color: #FF9900;
+  color: #000000
+}

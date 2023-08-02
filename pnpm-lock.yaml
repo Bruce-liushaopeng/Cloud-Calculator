@@ -35,6 +35,9 @@ dependencies:
   styled-components:
     specifier: ^6.0.5
     version: registry.npmmirror.com/styled-components@6.0.5(react-dom@18.2.0)(react@18.2.0)
+  underscore:
+    specifier: ^1.13.6
+    version: registry.npmmirror.com/underscore@1.13.6
 
 devDependencies:
   '@types/react':
@@ -43,6 +46,9 @@ devDependencies:
   '@types/react-dom':
     specifier: ^18.2.7
     version: registry.npmmirror.com/@types/react-dom@18.2.7
+  '@types/underscore':
+    specifier: ^1.11.6
+    version: registry.npmmirror.com/@types/underscore@1.11.6
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.0.0
     version: registry.npmmirror.com/@typescript-eslint/eslint-plugin@6.0.0(@typescript-eslint/parser@6.0.0)(eslint@8.45.0)(typescript@5.0.2)
@@ -2720,6 +2726,12 @@ packages:
     version: 4.2.0
     dev: false
 
+  registry.npmmirror.com/@types/underscore@1.11.6:
+    resolution: {integrity: sha512-G2oC64I/sR817KDL2b2Mc7+diXyxcibyUeLMyexU4K/sG8hyt/YMlbBK0TVhx/YQ1ehfzgXhLuq2YQHIL4bXUQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/underscore/-/underscore-1.11.6.tgz}
+    name: '@types/underscore'
+    version: 1.11.6
+    dev: true
+
   registry.npmmirror.com/@typescript-eslint/eslint-plugin@6.0.0(@typescript-eslint/parser@6.0.0)(eslint@8.45.0)(typescript@5.0.2):
     resolution: {integrity: sha512-xuv6ghKGoiq856Bww/yVYnXGsKa588kY3M0XK7uUW/3fJNNULKRfZfSBkMTSpqGG/8ZCXCadfh8G/z/B4aqS/A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-6.0.0.tgz}
     id: registry.npmmirror.com/@typescript-eslint/eslint-plugin/6.0.0
@@ -4643,6 +4655,12 @@ packages:
     engines: {node: '>=12.20'}
     hasBin: true
     dev: true
+
+  registry.npmmirror.com/underscore@1.13.6:
+    resolution: {integrity: sha512-+A5Sja4HP1M08MaXya7p5LvjuM7K6q/2EaC0+iovj/wOcMsTzMvDFbasi/oSapiwOlt252IqsKqPjCl7huKS0A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/underscore/-/underscore-1.13.6.tgz}
+    name: underscore
+    version: 1.13.6
+    dev: false
 
   registry.npmmirror.com/unicode-canonical-property-names-ecmascript@2.0.0:
     resolution: {integrity: sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-2.0.0.tgz}
