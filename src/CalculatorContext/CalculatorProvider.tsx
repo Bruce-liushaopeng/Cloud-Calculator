@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { ICalculatorData, IProps } from './type';
 import CalculatorContext from './CalculatorContext';
 import { SelectChangeEvent } from '@mui/material/Select';

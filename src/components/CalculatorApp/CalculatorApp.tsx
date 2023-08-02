@@ -8,33 +8,22 @@ import NumberInputTextField from '../NumberInputTextField/NumberInputTextField.t
 import { fetchCalculatorResult, validityCheck } from '../../util.ts';
 import {useHook} from '../../hook.ts'
 import './style.css'
+import { useCalculator } from '../../CalculatorContext/useCalculator.ts';
 
 function CalculatorApp() {
-  const [inputX, setInputX] = useState('')
-  const [inputY, setInputY] = useState('')
-  const [operator, setOperator] = useState('')
-  const [result, setResult] = useState('')
+  const { xValue, yValue, operator, handleInputXChange, handleInputYChange, handleOperatorChange } = useCalculator()
   const [isInputValid, setIsInputValid] = useState(true)
+  const [result, setResult] = useState('')
   const [inputValidationMsg, setInputValidationMsg] = useState('')
   const {boxStyleProps, xYTextFieldStyleProps, resultStyleProps, operatorStyleProps} = useHook();
 
-  const handleInputXChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputX(event.target.value)
-  }
-  const handleInputYChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputY(event.target.value)
-  }
-  const handleInputOpChange = (event: SelectChangeEvent) => {
-      setOperator(event.target.value)
-  }
-
   const getCalculationResult = async() => {
-    const {isValid, message} = validityCheck(inputX, inputY, operator);
+    const {isValid, message} = validityCheck(xValue, yValue, operator);
     console.log(isValid, message)
     setIsInputValid(isValid)
     setInputValidationMsg(message)
     if (!isValid) return
-    const res = await fetchCalculatorResult(inputX, inputY, operator);
+    const res = await fetchCalculatorResult(xValue, yValue, operator);
     console.log(res)
     const answer = res.data.ans as string
     setResult(answer)
@@ -61,7 +50,7 @@ function CalculatorApp() {
         <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            onChange={ handleInputOpChange }
+            onChange={ handleOperatorChange }
             sx={ operatorStyleProps }
             >
               <MenuItem value={'add'}>+</MenuItem>
