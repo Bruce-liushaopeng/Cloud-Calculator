@@ -19,8 +19,6 @@ function useCloudButton(
 
     const getCalculationResult = async() => {
         const {isValid, message} = validityCheck(xValue, yValue, operator);
-
-        console.log(isValid, message)
         setIsInputValid(isValid)
         setInputValidationMsg(message)
         if (!isValid) return

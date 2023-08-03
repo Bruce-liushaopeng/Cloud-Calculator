@@ -53,6 +53,7 @@ function CalculatorApp() {
       />
       <p className='equal-sign' >=</p>
       <TextField 
+        InputLabelProps={{ shrink: true }} 
         id="result" 
         variant="standard"
         value={result}
@@ -62,6 +63,10 @@ function CalculatorApp() {
       </Box>
       <CloudButton 
         cloudService={CLOUD_SERVICE.AWS as CloudServiceType}
+        sx={resultButtonStyleProps}
+      />
+      <CloudButton 
+        cloudService={CLOUD_SERVICE.GOOGLE as CloudServiceType}
         sx={resultButtonStyleProps}
       />
       <CloudButton 
