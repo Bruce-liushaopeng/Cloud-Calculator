@@ -21,6 +21,7 @@
     "react-dom": "^18.2.0",
     "styled-components": "^6.0.5",
     "styled-spinkit": "^1.1.0",
+    "ts-node": "^10.9.1",
     "underscore": "^1.13.6"
   },
   "devDependencies": {
