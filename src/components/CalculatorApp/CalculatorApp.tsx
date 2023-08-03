@@ -63,15 +63,12 @@ function CalculatorApp() {
       <CloudButton 
         cloudService={CLOUD_SERVICE.AWS as CloudServiceType}
         sx={resultButtonStyleProps}
-        image="./awsLogo.png"
-        alt="awsLogo"
       />
       <Box className='validationBox'>
         {
           isInputValid ? null: <Typography className='validationMsg'>{inputValidationMsg}</Typography>
         }
       </Box>
-      
     </>
   )
 }

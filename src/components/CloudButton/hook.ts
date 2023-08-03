@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { fetchCalculatorResult } from "../../api/api";
 import { API_LOOK_UP, CloudServiceType } from "../../api/type";
-import { BUTTON_ID_LOOKUP, validationResultType } from "./type";
+import { BUTTON_ALT_LOOKUP, BUTTON_ID_LOOKUP, BUTTON_IMAGE_LOOKUP, validationResultType } from "./type";
 function useCloudButton(
     cloudService: CloudServiceType,
     xValue: string, 
@@ -14,10 +14,12 @@ function useCloudButton(
     const [isApiFetching, setIsApiFetching] = useState(Boolean)
     const [apiFetchTime, setApiFetchTime] = useState(Number)
     const buttonId = BUTTON_ID_LOOKUP[cloudService]
-    
+    const image = BUTTON_IMAGE_LOOKUP[cloudService]
+    const alt = BUTTON_ALT_LOOKUP[cloudService]
+
     const getCalculationResult = async() => {
         const {isValid, message} = validityCheck(xValue, yValue, operator);
-        
+
         console.log(isValid, message)
         setIsInputValid(isValid)
         setInputValidationMsg(message)
@@ -31,7 +33,7 @@ function useCloudButton(
         const answer = res.data.ans as string
         setResult(answer)
       }
-    return { isApiFetching, apiFetchTime, buttonId, getCalculationResult }
+    return { isApiFetching, apiFetchTime, buttonId, alt, image, getCalculationResult }
 }
 
 const validityCheck = (inputX: string, inputY: string, operator: string): validationResultType => {

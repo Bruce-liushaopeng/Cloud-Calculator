@@ -3,8 +3,6 @@ import { CloudServiceType } from '../../api/type';
 
 interface ICloudButtonProps extends ButtonProps {
     cloudService: CloudServiceType,
-    image: string,
-    alt: string,
 }
 
 type validationResultType = {
@@ -17,7 +15,16 @@ const BUTTON_ID_LOOKUP = {
     "GOOGLE": "googleButton"
 }
 
-type ButtonIdType = keyof typeof BUTTON_ID_LOOKUP
+const BUTTON_IMAGE_LOOKUP = {
+    "AWS": "./awsLogo.png",
+    "GOOGLE": "./googleLogo.png"
+}
 
-export type { ICloudButtonProps, validationResultType, ButtonIdType }
-export { BUTTON_ID_LOOKUP }
+const BUTTON_ALT_LOOKUP = {
+    "AWS": "awsLogo",
+    "GOOGLE": "awsLogo"
+}
+
+
+export type { ICloudButtonProps, validationResultType }
+export { BUTTON_ID_LOOKUP, BUTTON_IMAGE_LOOKUP, BUTTON_ALT_LOOKUP }

@@ -5,9 +5,9 @@ import './style.css'
 import { useCalculatorContext } from "../../CalculatorContext/useCalculator";
 import useCloudButton from "./hook";
 
-function CloudButton({ sx, image, alt, cloudService }:ICloudButtonProps) {
+function CloudButton({ sx, cloudService }:ICloudButtonProps) {
     const { xValue, yValue, operator, setInputValidationMsg, setResult, setIsInputValid} = useCalculatorContext()
-    const { isApiFetching, apiFetchTime, getCalculationResult, buttonId } = useCloudButton(cloudService, xValue, yValue, operator,setIsInputValid, setInputValidationMsg, setResult);
+    const { isApiFetching, apiFetchTime, buttonId, image, alt ,getCalculationResult } = useCloudButton(cloudService, xValue, yValue, operator,setIsInputValid, setInputValidationMsg, setResult);
     return(
         <Box>
             <Box className='buttonInnerContainer'>
