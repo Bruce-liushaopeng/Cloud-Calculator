@@ -33,5 +33,11 @@ const operationArray: IOperator[] = [
     },
 ]
 
-export type { validationResultType, ApiResponseType}
-export {operationArray}
+const SERVERLESS_PROVIDER= {
+    AWS: 'https://3c9e7sa4sl.execute-api.us-east-2.amazonaws.com/dev/calculator',
+    GOOGLE: 'https://us-central1-calculator-394801.cloudfunctions.net/calc'
+}
+
+
+export type { validationResultType, ApiResponseType, }
+export {operationArray, SERVERLESS_PROVIDER}

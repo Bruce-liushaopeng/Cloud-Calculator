@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { ApiResponseType, validationResultType } from './type';
 
-const fetchCalculatorResult = async (inputX: string, inputY: string, operator: string):Promise<ApiResponseType>=> {
+const fetchCalculatorResult = async (serverlessProvider: string, inputX: string, inputY: string, operator: string):Promise<ApiResponseType>=> {
   const sendTime = new Date();
+  console.log(serverlessProvider)
   const res = await axios.get(
-      'https://3c9e7sa4sl.execute-api.us-east-2.amazonaws.com/dev/calculator', 
+    serverlessProvider, 
       { params: { x: inputX, y: inputY, op: operator} });
   const receiveTime = new Date()
   const duration = receiveTime.getTime() - sendTime.getTime()
