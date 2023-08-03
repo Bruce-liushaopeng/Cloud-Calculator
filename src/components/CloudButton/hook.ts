@@ -23,12 +23,12 @@ function useCloudButton(
         setInputValidationMsg(message)
         if (!isValid) return
         setIsApiFetching(true)
-        console.log('cloudService', cloudService)
-        console.log('lookup', API_LOOK_UP[cloudService])
+        console.log(`cloudService: ${cloudService}`)
         const {res, duration} = await fetchCalculatorResult(API_LOOK_UP[cloudService], xValue, yValue, operator);
         setApiFetchTime(duration)
         setIsApiFetching(false)
         const answer = res.data.ans as string
+        console.log(answer)
         setResult(answer)
       }
     return { isApiFetching, apiFetchTime, buttonId, alt, image, getCalculationResult }

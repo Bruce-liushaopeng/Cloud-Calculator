@@ -9,7 +9,6 @@ const fetchCalculatorResult = async (serverlessProvider: string, inputX: string,
       { params: { x: inputX, y: inputY, op: operator} });
   const receiveTime = new Date()
   const duration = receiveTime.getTime() - sendTime.getTime()
-  console.log(duration)
   const apiRes = { res, duration }
   return apiRes
 }
