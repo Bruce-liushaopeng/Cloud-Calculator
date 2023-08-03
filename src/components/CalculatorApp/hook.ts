@@ -27,7 +27,8 @@ function useHook(){
   const resultButtonStyleProps = {
     fontSize: "20px",
     padding: '5px 15px',
-    textTransform: 'none'
+    textTransform: 'none',
+    fontFamily: 'Comic Sans MS'
   }
   
   return { boxStyleProps, xYTextFieldStyleProps, operatorStyleProps, resultStyleProps, resultButtonStyleProps }

@@ -38,13 +38,13 @@ const validityCheck = (inputX: string, inputY: string, operator: string): valida
     if (operator == '') {
       return {
         isValid: false,
-        message: "Don't forget select operational sign"
+        message: "Don't forget operator"
       }
     }
     if (operator == 'divide' && inputY == '0') {
       return {
         isValid: false,
-        message: "We can't divide 0 buddy"
+        message: "We can't divide 0 "
       }
     }
     if (inputX == '' || inputY == '') {

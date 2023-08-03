@@ -16,7 +16,7 @@ const BUTTON_ID_LOOKUP = {
 }
 
 const BUTTON_IMAGE_LOOKUP = {
-    "AWS": "./awsLogo.png",
+    "AWS": "./awsLogo.jpeg",
     "GOOGLE": "./googleLogo.png"
 }
 
