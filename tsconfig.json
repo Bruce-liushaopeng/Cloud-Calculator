@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "Serverless Function/Google Cloud"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
