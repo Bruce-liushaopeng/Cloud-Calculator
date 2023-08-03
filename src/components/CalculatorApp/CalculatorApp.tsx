@@ -64,6 +64,10 @@ function CalculatorApp() {
         cloudService={CLOUD_SERVICE.AWS as CloudServiceType}
         sx={resultButtonStyleProps}
       />
+      <CloudButton 
+        cloudService={CLOUD_SERVICE.GOOGLE as CloudServiceType}
+        sx={resultButtonStyleProps}
+      />
       <Box className='validationBox'>
         {
           isInputValid ? null: <Typography className='validationMsg'>{inputValidationMsg}</Typography>

@@ -11,11 +11,17 @@
     margin-right: 15px;
 }
 
+#googleButton {
+    background-color: #FFFFFF;
+    color: #000000;
+    margin-right: 15px;
+}
+
 .circleFetchTimeContainer {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 60px;
-    height: 80px;
+    height: 40px;
     margin: 5px;
 }
