@@ -7,13 +7,13 @@ import useCloudButton from "./hook";
 
 function CloudButton({ sx, image, alt, cloudService }:ICloudButtonProps) {
     const { xValue, yValue, operator, setInputValidationMsg, setResult, setIsInputValid} = useCalculatorContext()
-    const { isApiFetching, apiFetchTime, getCalculationResult } = useCloudButton(cloudService, xValue, yValue, operator,setIsInputValid, setInputValidationMsg, setResult);
+    const { isApiFetching, apiFetchTime, getCalculationResult, buttonId } = useCloudButton(cloudService, xValue, yValue, operator,setIsInputValid, setInputValidationMsg, setResult);
     return(
         <Box>
             <Box className='buttonInnerContainer'>
             <Button
                 variant="contained" 
-                id="awsButton" 
+                id={buttonId}
                 onClick={ () => getCalculationResult() }
                 sx={ sx }>
                 Get Result

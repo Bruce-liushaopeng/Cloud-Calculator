@@ -12,4 +12,12 @@ type validationResultType = {
     message: string
 }
 
-export type { ICloudButtonProps, validationResultType }
+const BUTTON_ID_LOOKUP = {
+    "AWS": "awsButton",
+    "GOOGLE": "googleButton"
+}
+
+type ButtonIdType = keyof typeof BUTTON_ID_LOOKUP
+
+export type { ICloudButtonProps, validationResultType, ButtonIdType }
+export { BUTTON_ID_LOOKUP }
