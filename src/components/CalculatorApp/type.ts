@@ -1,15 +1,3 @@
-import { AxiosResponse } from "axios"
-
-type validationResultType = {
-    isValid: boolean,
-    message: string
-}
-
-type ApiResponseType = {
-    res: AxiosResponse,
-    duration: number
-}
-
 interface IOperator {
     operatorName: string, 
     operatorSymbol: string
@@ -33,11 +21,9 @@ const operationArray: IOperator[] = [
     },
 ]
 
-const SERVERLESS_PROVIDER= {
-    AWS: 'https://3c9e7sa4sl.execute-api.us-east-2.amazonaws.com/dev/calculator',
-    GOOGLE: 'https://us-central1-calculator-394801.cloudfunctions.net/calc'
+const CLOUD_SERVICE = {
+    AWS: 'AWS',
+    GOOGLE: 'GOOGLE'
 }
 
-
-export type { validationResultType, ApiResponseType, }
-export {operationArray, SERVERLESS_PROVIDER}
+export {operationArray, CLOUD_SERVICE}

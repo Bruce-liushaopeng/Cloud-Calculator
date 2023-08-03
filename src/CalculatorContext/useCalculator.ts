@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import CalculatorContext from "./CalculatorContext";
 
-export function useCalculator() {
+export function useCalculatorContext() {
     const calculatorContextData = useContext(CalculatorContext);
   
     // check for best practice

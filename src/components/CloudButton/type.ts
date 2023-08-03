@@ -1,11 +1,15 @@
 import {ButtonProps} from '@mui/material/Button';
+import { CloudServiceType } from '../../api/type';
 
 interface ICloudButtonProps extends ButtonProps {
-    cloudService: string,
+    cloudService: CloudServiceType,
     image: string,
     alt: string,
-    isApiFetching: boolean,
-    apiFetchTime: number,
 }
 
-export type { ICloudButtonProps }
+type validationResultType = {
+    isValid: boolean,
+    message: string
+}
+
+export type { ICloudButtonProps, validationResultType }

@@ -1,41 +1,22 @@
-import { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import NumberInputTextField from '../NumberInputTextField/NumberInputTextField.tsx';
 import { Typography } from '@mui/material';
-import { fetchCalculatorResult, validityCheck } from './util.ts';
 import {useHook} from './hook.ts'
-import { operationArray, SERVERLESS_PROVIDER } from './type.ts';
-import { useCalculator } from '../../CalculatorContext/useCalculator.ts';
+import { operationArray, CLOUD_SERVICE } from './type.ts';
+import { useCalculatorContext } from '../../CalculatorContext/useCalculator.ts';
 import _ from 'underscore';
 import './style.css'
 import CloudButton from '../CloudButton/CloudButton.tsx';
+import { CloudServiceType } from '../../api/type.ts';
 
 
 function CalculatorApp() {
-  const { xValue, yValue, operator, handleInputXChange, handleInputYChange, handleOperatorChange } = useCalculator()
-  const [isInputValid, setIsInputValid] = useState(true)
-  const [result, setResult] = useState('')
-  const [inputValidationMsg, setInputValidationMsg] = useState('')
+  const { xValue, yValue, operator, result, inputValidationMsg, isInputValid, handleInputXChange, handleInputYChange, handleOperatorChange } = useCalculatorContext()
+  
   const {boxStyleProps, xYTextFieldStyleProps, resultStyleProps, operatorStyleProps, resultButtonStyleProps} = useHook();
-  const [apiFetchTime, setApiFetchTime] = useState(Number)
-  const [isApiFetching, setIsApiFetching] = useState(Boolean)
-
-  const getCalculationResult = async(serverlessProvider: string) => {
-    const {isValid, message} = validityCheck(xValue, yValue, operator);
-    console.log(isValid, message)
-    setIsInputValid(isValid)
-    setInputValidationMsg(message)
-    if (!isValid) return
-    setIsApiFetching(true)
-    const {res, duration} = await fetchCalculatorResult(serverlessProvider, xValue, yValue, operator);
-    setApiFetchTime(duration)
-    setIsApiFetching(false)
-    const answer = res.data.ans as string
-    setResult(answer)
-  }
 
   return (
     <>
@@ -80,18 +61,8 @@ function CalculatorApp() {
         sx={resultStyleProps} />
       </Box>
       <CloudButton 
-        onChange={() => getCalculationResult(SERVERLESS_PROVIDER.AWS)}
+        cloudService={CLOUD_SERVICE.AWS as CloudServiceType}
         sx={resultButtonStyleProps}
-        isApiFetching={isApiFetching}
-        apiFetchTime={apiFetchTime}
-        image="./awsLogo.png"
-        alt="awsLogo"
-      />
-      <CloudButton 
-        onChange={() => getCalculationResult(SERVERLESS_PROVIDER.GOOGLE)}
-        sx={resultButtonStyleProps}
-        isApiFetching={isApiFetching}
-        apiFetchTime={apiFetchTime}
         image="./awsLogo.png"
         alt="awsLogo"
       />

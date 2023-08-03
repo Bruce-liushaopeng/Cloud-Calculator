@@ -7,6 +7,9 @@ function CalculatorProvider({children}: IProps){
     const [xValue, setxValue] = useState('')
     const [yValue, setYValue] = useState('')
     const [operator, setOperator] = useState('')
+    const [isInputValid, setIsInputValid] = useState(Boolean)
+    const [inputValidationMsg, setInputValidationMsg] = useState('')
+    const [result, setResult] = useState('')
 
     const handleInputXChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setxValue(event.target.value)
@@ -24,11 +27,17 @@ function CalculatorProvider({children}: IProps){
             xValue,
             yValue,
             operator,
+            result,
+            isInputValid,
+            inputValidationMsg,
             handleInputXChange,
             handleInputYChange,
-            handleOperatorChange
+            handleOperatorChange,
+            setInputValidationMsg,
+            setResult,
+            setIsInputValid
         };
-    }, [xValue, yValue, operator, handleInputXChange, handleInputYChange, handleOperatorChange]);
+    }, [xValue, yValue, operator, inputValidationMsg, result, handleInputXChange, handleInputYChange, handleOperatorChange, setInputValidationMsg, setResult]);
 
     return (
         <CalculatorContext.Provider value={counterContextData}>
