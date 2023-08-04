@@ -1,4 +1,4 @@
-﻿<Properties>
+﻿<Properties StartupConfiguration="{E4E42B7A-F6E3-44A5-B4BC-6B390FA8BF59}|Default">
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.AzureFunction FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.AzureFunction PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

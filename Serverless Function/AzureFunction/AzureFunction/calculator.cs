@@ -7,29 +7,42 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace AzureFunction
 {
     public static class calculator
     {
-        [FunctionName("calculator")]
+        [FunctionName("calculator")] // defines the name of the function
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            string name = req.Query["name"];
+            double x = double.Parse(req.Query["x"]);
+            double y = double.Parse(req.Query["y"]);
+            string op = req.Query["op"];
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
+            double calcResult=3;
 
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
-
-            return new OkObjectResult(responseMessage);
+            if (op == "add") {
+                calcResult = x + y;
+            } else if (op == "minus") {
+                calcResult = x - y;
+            }
+            else if (op == "multiply") {
+                calcResult = x * y;
+            }
+             else if (op == "divide") {
+                calcResult = x / y;
+            }
+            
+            var resDict = new Dictionary<string, string>();
+            resDict.Add("x", x.ToString());
+            resDict.Add("y",y.ToString());
+            resDict.Add("ans", System.Math.Round(calcResult,2).ToString());
+            return new OkObjectResult(resDict);
         }
     }
 }
