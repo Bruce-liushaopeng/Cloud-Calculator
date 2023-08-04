@@ -1,9 +1,10 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import { ICloudButtonProps } from "./type";
 import { Circle } from "styled-spinkit";
 import './style.css'
 import { useCalculatorContext } from "../../CalculatorContext/useCalculator";
 import useCloudButton from "./hook";
+import NetworkRespondTime from "../NetworkRespondTime/NetworkRespondTime";
 
 function CloudButton({ sx, cloudService }:ICloudButtonProps) {
     const { xValue, yValue, operator, setInputValidationMsg, setResult, setIsInputValid} = useCalculatorContext()
@@ -23,10 +24,8 @@ function CloudButton({ sx, cloudService }:ICloudButtonProps) {
                 {
                 isApiFetching ? <Circle size={27}/>
                     : Boolean(apiFetchTime) ? 
-                    <Typography variant='body2'>
-                    {`${apiFetchTime} ms`}
-                    </Typography>
-                    : null
+                        <NetworkRespondTime apiFetchTime={apiFetchTime}/>
+                        : null
                 }
             </div>
             </Box>

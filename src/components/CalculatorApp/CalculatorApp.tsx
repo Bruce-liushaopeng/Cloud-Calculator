@@ -12,7 +12,6 @@ import CloudButton from '../CloudButton/CloudButton.tsx';
 import { CloudServiceType } from '../../api/type.ts';
 import Alert from '../Alert/Alert.tsx';
 
-
 function CalculatorApp() {
   const { xValue, yValue, operator, result, inputValidationMsg, isInputValid, handleInputXChange, handleInputYChange, handleOperatorChange } = useCalculatorContext()
   

@@ -1,5 +1,5 @@
 import { Alert as MuiAlert, AlertTitle, Zoom, Box } from '@mui/material';
-import { validationResultType } from "./type";
+import { validationResultType } from '../CloudButton/type';
 
 
 function Alert({ isValid, message }: validationResultType) {

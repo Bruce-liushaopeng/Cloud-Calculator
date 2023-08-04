@@ -23,18 +23,24 @@ function useCloudButton(
         setInputValidationMsg(message)
         if (!isValid) return
         setIsApiFetching(true)
-        console.log(`cloudService: ${cloudService}`)
+        console.log(`Cloud Provider: ${cloudService}`)
         const {res, duration} = await fetchCalculatorResult(API_LOOK_UP[cloudService], xValue, yValue, operator);
         setApiFetchTime(duration)
         setIsApiFetching(false)
         const answer = res.data.ans as string
-        console.log(answer)
+        console.log(`Result: ${answer}`)
         setResult(answer)
       }
     return { isApiFetching, apiFetchTime, buttonId, alt, image, getCalculationResult }
 }
 
 const validityCheck = (inputX: string, inputY: string, operator: string): validationResultType => {
+    if(operator == '' && inputX == '' && inputY == '') {
+      return {
+        isValid: false,
+        message: "Seems you forget to input something"
+      }
+    }
     if (operator == '') {
       return {
         isValid: false,
