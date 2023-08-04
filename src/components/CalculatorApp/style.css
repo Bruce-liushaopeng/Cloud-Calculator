@@ -12,7 +12,7 @@
   color: #b61c24;
 }
 
-.warningBox {
+.alertBox {
   display: flex;
   justify-content: center;
 }

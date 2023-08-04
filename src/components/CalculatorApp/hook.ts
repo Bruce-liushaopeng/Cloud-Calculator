@@ -6,7 +6,7 @@ function useHook(){
       justifyContent:'center',
       alignItems: 'center', 
       m:'2',
-      rowGap: '10px'
+      rowGap: '10px',
   }
 
   const xYTextFieldStyleProps = {

@@ -3,7 +3,7 @@ import { ApiResponseType } from './type';
 
 const fetchCalculatorResult = async (serverlessProvider: string, inputX: string, inputY: string, operator: string):Promise<ApiResponseType>=> {
   const sendTime = new Date();
-  console.log(serverlessProvider)
+  console.log("BASE URL: " + serverlessProvider)
   const params = { x: inputX, y: inputY, op: operator}
   const res = await axios.get(serverlessProvider, {params});
   const receiveTime = new Date()
