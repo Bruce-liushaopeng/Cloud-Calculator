@@ -7,7 +7,7 @@ function CalculatorProvider({children}: IProps){
     const [xValue, setxValue] = useState('')
     const [yValue, setYValue] = useState('')
     const [operator, setOperator] = useState('')
-    const [isInputValid, setIsInputValid] = useState(Boolean)
+    const [isInputValid, setIsInputValid] = useState(true)
     const [inputValidationMsg, setInputValidationMsg] = useState('')
     const [result, setResult] = useState('')
 

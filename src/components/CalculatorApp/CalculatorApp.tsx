@@ -1,9 +1,10 @@
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import Fade from '@mui/material/Fade';
 import Box from '@mui/material/Box';
 import NumberInputTextField from '../NumberInputTextField/NumberInputTextField.tsx';
-import { Typography } from '@mui/material';
+import { Alert, AlertTitle, Grow, Slide, Typography, Zoom } from '@mui/material';
 import {useHook} from './hook.ts'
 import { operationArray, CLOUD_SERVICE } from './type.ts';
 import { useCalculatorContext } from '../../CalculatorContext/useCalculator.ts';
@@ -73,10 +74,13 @@ function CalculatorApp() {
         cloudService={CLOUD_SERVICE.AZURE as CloudServiceType}
         sx={resultButtonStyleProps}
       />
-      <Box className='validationBox'>
-        {
-          isInputValid ? null: <Typography className='validationMsg'>{inputValidationMsg}</Typography>
-        }
+      <Box className='warningBox'>
+          <Zoom in={!isInputValid} style={{ transitionDelay: !isInputValid ? '100ms' : '0ms' }}>
+            <Alert severity="warning" sx={{width: "400px"}}>
+              <AlertTitle>Warning</AlertTitle>
+              <strong>{inputValidationMsg}</strong>
+            </Alert>
+          </Zoom>
       </Box>
     </>
   )

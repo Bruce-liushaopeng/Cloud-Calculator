@@ -11,3 +11,8 @@
   text-align: center;
   color: #b61c24;
 }
+
+.warningBox {
+  display: flex;
+  justify-content: center;
+}
