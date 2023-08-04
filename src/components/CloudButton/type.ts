@@ -12,17 +12,20 @@ type validationResultType = {
 
 const BUTTON_ID_LOOKUP = {
     "AWS": "awsButton",
-    "GOOGLE": "googleButton"
+    "GOOGLE": "googleButton",
+    "AZURE": "azureButton"
 }
 
 const BUTTON_IMAGE_LOOKUP = {
     "AWS": "./awsLogo.jpeg",
-    "GOOGLE": "./googleLogo.png"
+    "GOOGLE": "./googleLogo.png",
+    "AZURE": "./azureLogo.png"
 }
 
 const BUTTON_ALT_LOOKUP = {
     "AWS": "awsLogo",
-    "GOOGLE": "awsLogo"
+    "GOOGLE": "googleLogo",
+    "AZURE": "azureLogo"
 }
 
 

@@ -13,6 +13,8 @@ namespace AzureFunction
 {
     public static class calculator
     {
+        // sameple function call
+        // https://calculator-function01.azurewebsites.net/api/calculator?code=PCk_3unnVVNNfjj4LZCHnSKyYW-dyapl4gmHWChGVMDKAzFuzJeNWA==&x=1&y=3&op=add
         [FunctionName("calculator")] // defines the name of the function
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,

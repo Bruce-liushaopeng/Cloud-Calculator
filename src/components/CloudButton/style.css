@@ -17,6 +17,12 @@
     margin-right: 15px;
 }
 
+#azureButton {
+    background-color: #2669d6;
+    color: #FFFFFF;
+    margin-right: 15px;
+}
+
 .circleFetchTimeContainer {
     display: flex;
     align-items: center;

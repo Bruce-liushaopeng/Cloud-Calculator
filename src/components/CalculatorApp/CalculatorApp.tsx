@@ -70,7 +70,7 @@ function CalculatorApp() {
         sx={resultButtonStyleProps}
       />
       <CloudButton 
-        cloudService={CLOUD_SERVICE.GOOGLE as CloudServiceType}
+        cloudService={CLOUD_SERVICE.AZURE as CloudServiceType}
         sx={resultButtonStyleProps}
       />
       <Box className='validationBox'>

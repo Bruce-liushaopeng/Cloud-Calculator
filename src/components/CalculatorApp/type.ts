@@ -23,7 +23,8 @@ const operationArray: IOperator[] = [
 
 const CLOUD_SERVICE = {
     AWS: 'AWS',
-    GOOGLE: 'GOOGLE'
+    GOOGLE: 'GOOGLE',
+    AZURE: 'AZURE'
 }
 
 export {operationArray, CLOUD_SERVICE}
