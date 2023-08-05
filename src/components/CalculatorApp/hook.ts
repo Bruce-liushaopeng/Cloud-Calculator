@@ -1,6 +1,13 @@
+import { SxProps } from "@mui/material"
+
 function useHook(){
 
-  const boxStyleProps = {
+  const calculatorBoxStyleProps: SxProps = {
+    height: 500,
+    paddingTop: 10
+  }
+
+  const inputBoxStyleProps: SxProps = {
       display: 'flex',
       flexDirection: 'row',
       justifyContent:'center',
@@ -9,29 +16,29 @@ function useHook(){
       rowGap: '10px',
   }
 
-  const xYTextFieldStyleProps = {
+  const xYTextFieldStyleProps: SxProps = {
     width: "80px",
     marginRight:'15px'
   }
 
-  const resultStyleProps = {
+  const resultStyleProps: SxProps = {
     input: {textAlign: "center"},
     width: "90px"
   }
 
-  const operatorStyleProps = {
+  const operatorStyleProps: SxProps = {
       width:'60px',
       marginRight:'15px'
   }
 
-  const resultButtonStyleProps = {
+  const resultButtonStyleProps: SxProps = {
     fontSize: "20px",
     padding: '5px 15px',
     textTransform: 'none',
     fontFamily: 'Comic Sans MS'
   }
-  
-  return { boxStyleProps, xYTextFieldStyleProps, operatorStyleProps, resultStyleProps, resultButtonStyleProps }
+
+  return { calculatorBoxStyleProps, inputBoxStyleProps, xYTextFieldStyleProps, operatorStyleProps, resultStyleProps, resultButtonStyleProps }
 }
 
 export { useHook }
