@@ -1,6 +1,12 @@
 #root {
-  max-width: 900px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
   color: black;
+}
+
+body{
+  margin: 0;
+  background-color: #f1efe7;
+  height: 100vh
 }

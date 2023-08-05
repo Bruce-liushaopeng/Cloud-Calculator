@@ -4,7 +4,7 @@ function useHook(){
 
   const calculatorBoxStyleProps: SxProps = {
     height: 500,
-    paddingTop: 10
+    paddingTop: 7
   }
 
   const inputBoxStyleProps: SxProps = {
