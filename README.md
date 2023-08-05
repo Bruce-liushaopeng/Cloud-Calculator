@@ -1,14 +1,17 @@
 <p align="center">
-  <img src="public/logo-removebg.png" />
+  <img src="public/logo.png" />
 </p>
 
------
 
-# Overview
+# Features
 
-Cloud Calculator calculate your simple math question by performing calculationg tasks using polular cloud running platforms
+ 1. Calculation performs using popular cloud providers
 
-----
+ 2. Real time calculation speed feedback
+<p align="center">
+  <img src="public/speed-screenshot.png" />
+</p>
+
 # Cloud Providers
 ### AWS
 <p align="center">
@@ -19,16 +22,15 @@ Cloud Calculator calculate your simple math question by performing calculationg 
 <p align="center">
   <img src="public/googleLogo.png" />
 </p>
+
 ### Microsoft Azure
 <p align="center">
   <img src="public/azureLogo3.png" />
 </p>
 
------
 # Link
 ## [Cloud Calculator](https://main--hilarious-torte-070d53.netlify.app/)
 
------
 # Run local 
 1. Clone Github Repo
 2. On project root folder run `npm install`
