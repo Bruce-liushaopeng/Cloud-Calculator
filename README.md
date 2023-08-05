@@ -7,10 +7,13 @@
 
  1. Calculation performs using popular cloud providers
 
- 2. Real time calculation speed feedback
+ 2. Real-time calculation speed feedback
 <p align="center">
   <img src="public/speed-screenshot.png" />
 </p>
+
+# Link
+[Cloud Calculator](https://main--hilarious-torte-070d53.netlify.app/)
 
 # Cloud Providers
 ### AWS
@@ -27,9 +30,6 @@
 <p align="center">
   <img src="public/azureLogo3.png" />
 </p>
-
-# Link
-[Cloud Calculator](https://main--hilarious-torte-070d53.netlify.app/)
 
 # Run local 
 1. Clone Github Repo
