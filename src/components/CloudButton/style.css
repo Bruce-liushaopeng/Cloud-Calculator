@@ -9,18 +9,21 @@
     background-color: #262e3b;
     color: #FF9900;
     margin-right: 15px;
+    margin-left: 50px;
 }
 
 #googleButton {
     background-color: #FFFFFF;
     color: #4885ed;
     margin-right: 15px;
+    margin-left: 50px;
 }
 
 #azureButton {
     background-color: #2669d6;
     color: #FFFFFF;
     margin-right: 15px;
+    margin-left: 50px;
 }
 
 .circleFetchTimeContainer {

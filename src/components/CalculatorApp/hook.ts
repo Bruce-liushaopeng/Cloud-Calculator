@@ -4,7 +4,7 @@ function useHook(){
 
   const calculatorBoxStyleProps: SxProps = {
     height: 500,
-    paddingTop: 7
+    paddingTop: 3,
   }
 
   const inputBoxStyleProps: SxProps = {
@@ -14,6 +14,7 @@ function useHook(){
       alignItems: 'center', 
       m:'2',
       rowGap: '10px',
+      pb: 5
   }
 
   const xYTextFieldStyleProps: SxProps = {
