@@ -18,7 +18,7 @@ function useHook(){
   }
 
   const xYTextFieldStyleProps: SxProps = {
-    width: "80px",
+    width: "90px",
     marginRight:'15px'
   }
 

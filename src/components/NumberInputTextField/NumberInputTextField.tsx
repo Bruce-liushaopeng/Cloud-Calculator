@@ -9,6 +9,7 @@ export default function NumberInputTextField(props: TextFieldProps, children: JS
 			id={id}
 			label={label}
 			sx={sx}
+			type='number'
 			value={value}
 			placeholder={placeHolder}
 			onChange={onChange}
