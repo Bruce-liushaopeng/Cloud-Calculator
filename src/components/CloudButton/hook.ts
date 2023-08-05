@@ -47,7 +47,7 @@ const validityCheck = (inputX: string, inputY: string, operator: string): valida
         message: "Don't forget operator"
       }
     }
-    if (operator == 'divide' && inputY == '0') {
+    if (operator == 'divide' && Number(inputY) == 0) {
       return {
         isValid: false,
         message: "We can't divide 0 "
