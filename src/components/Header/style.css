@@ -1,0 +1,12 @@
+.logoImg {
+    border-radius: 5px;
+    &:hover {
+        height: 72px;
+    }
+}
+
+.imgContainer {
+    height: 90px;
+    width: 100px;
+}
+    
