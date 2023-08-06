@@ -13,7 +13,7 @@
 </p>
 
 # Link
-[Cloud Calculator](https://main--hilarious-torte-070d53.netlify.app/)
+[Cloud Calculator](https://bruce-liushaopeng.github.io/Cloud-Calculator/)
 
 # Cloud Providers
 ### AWS
